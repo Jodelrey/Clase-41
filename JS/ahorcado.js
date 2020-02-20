@@ -22,8 +22,6 @@ const mostrarPalabra = (texto, letras)=>{
     }
 } return newArray.join('');
 }
-
-
 let letras = [];
 
 const palabra = palabraAAdivinar(listadoPalabras);
@@ -31,14 +29,17 @@ let perdio = false;
 let gano = false;
 alert("La palabra a adivinar es: " + mostrarPalabra(palabra, letras));
 console.log(palabra);
+
 while(letras.length<=5 && !perdio){
-    let ingreso = prompt("Ingrese una palabra o letra, recuerde que solo tiene 6 intentos. Si ingresa la palabra y no acierta perdio el juego");
-    console.log(ingreso.length);
-    if(ingreso.length===1){
+    let ingreso = prompt("Ingrese una palabra o letra, recuerde que solo tiene 6 intentos. Si ingresa la palabra y no acierta perdio el juego");   
+    if(ingreso===null){
+        perdio = true;
+        alert(`No adivino la palabra, era ${palabra}, perdio`)
+    }
+    else if(ingreso.length===1){
         letras.push(ingreso);
-        alert(mostrarPalabra(palabra, letras));
-        }
-    else if (ingreso.length>1){
+        alert("Agregamos una pista: " + mostrarPalabra(palabra, letras));
+    } else {
         if(ingreso===palabra){
              gano = true;
              perdio = true;
@@ -48,6 +49,7 @@ while(letras.length<=5 && !perdio){
          }        
     }  
 }
+
 if(gano){
     alert(`Adivino la palabra ${palabra} CAMPEON`);
 } else if(letras.length>5){
