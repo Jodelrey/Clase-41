@@ -10,7 +10,7 @@ const palabraAAdivinar = (arr) =>{
 
 const mostrarPalabra = (texto, arr)=>{
     let newArray = texto.split('');
-    if(letras.length>0){   
+    if(arr.length>0){   
         for (let i = 0; i < newArray.length; i++) {
            if(arr.indexOf(newArray[i])===-1){
                newArray[i] = "*";
