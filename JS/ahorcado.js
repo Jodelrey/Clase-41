@@ -8,11 +8,11 @@ const palabraAAdivinar = (arr) =>{
     return arr[indiceRandom];
 }
 
-const mostrarPalabra = (texto, letras)=>{
+const mostrarPalabra = (texto, arr)=>{
     let newArray = texto.split('');
     if(letras.length>0){   
         for (let i = 0; i < newArray.length; i++) {
-           if(letras.indexOf(newArray[i])===-1){
+           if(arr.indexOf(newArray[i])===-1){
                newArray[i] = "*";
            }
         }
